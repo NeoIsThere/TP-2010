@@ -4,6 +4,11 @@ import java.util.stream.*;
 
 public class Solution {
 
+    //HACKER RANK
+    //Albert Camus @samuel_lavallee
+    //@anthelme_clisson
+
+
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -31,7 +36,7 @@ public class Solution {
     class World {
 
         public Node[][] world;
-        public List<HashSet<Integer>> continents;
+        public List<TreeSet<Integer>> continents;
         public int height, width, id;
         int[] directions = {1,-1};
         boolean isBfs;
@@ -51,7 +56,7 @@ public class Solution {
         }
 
         World(List<List<Integer>> rawWorld, boolean isBfs) {
-            continents = new LinkedList<HashSet<Integer>>();
+            continents = new ArrayList<TreeSet<Integer>>();
             this.isBfs = isBfs;
             height = rawWorld.size(); width = rawWorld.get(0).size(); id=0;
             world = new Node[height][width];
@@ -95,7 +100,7 @@ public class Solution {
             for (int i = 0; i < height; i++)
                 for (int j = 0; j < width; j++) {
                     if (!world[i][j].isVisited && world[i][j].pays != 0) {
-                        continents.add(new HashSet<>());
+                        continents.add(new TreeSet<>());
                         if (isBfs)
                             breadthSearch(world[i][j]);
                         else
